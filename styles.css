@@ -1,0 +1,24 @@
+#red-butn{
+    size: 100px;
+    background-color: red;
+    border-style: double;
+    padding: 50px;
+}
+#blue-butn{
+    size: 100px;
+    background-color: blue;
+    border-style: double;
+    padding: 50px;
+}
+#green-butn{
+    size: 100px;
+    background-color: green;
+    border-style: double;
+    padding: 50px;
+}
+#yellow-butn{
+    size: 100px;
+    background-color: yellow;
+    border-style: double;
+    padding: 50px;
+}
