@@ -1,31 +1,27 @@
 const allButtons = [...document.getElementsByTagName("main")[0].children];
-
-//console.dir(document.getElementsByTagName("main")[0].children[0].id);
 let scoreId = document.getElementById("score-id").children[0];
+const playBtn = document.getElementById("play-butn");
 
 const list = allButtons.map((elem) => {
   if (elem.id !== "play-butn") {
     return elem;
   }
 });
-
-console.log(list);
-
-let pattern = ["blue-butn"];
-
-const playBtn = document.getElementById("play-butn");
+let pattern = [get_random(list).id];
+const gameState = {clickIndex: 0, clicks: [], score: 0}
 
 playBtn.addEventListener("click", function onClick() {
-  allButtons.forEach((elem) => {
-    if (elem.id === pattern[0]) {
-      elem.style.backgroundColor = "rgb(237, 237, 237)";
-      setTimeout(function () {
-        return (elem.style.backgroundColor = "blue");
-      }, 1000);
+  allButtons.forEach(async (elem) => {
+    if(elem.id === pattern[0]) {
+      console.log(elem)
+      await lightColor(elem, 1000)
     }
   });
 });
 
+function get_random(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
 function waitforme(milisec) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -34,49 +30,55 @@ function waitforme(milisec) {
   });
 }
 
-async function colorLight(arr) {
-  console.log(arr, "colorrrr");
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i], "color");
-    let elem = document.getElementById(arr[i]);
-
-    elem.style.backgroundColor = "rgb(237, 237, 237)";
-    await waitforme(1000);
-
-    elem.style.backgroundColor = elem.textContent;
+async function lightPatterns(arr) {
+  console.log("pause for pattern to start??", pattern)
+  await waitforme(1500)
+  arr.forEach( async (elem) => {
+    let element = document.getElementById(elem);
+    console.log("light on")
+    console.dir(element.style.backgroundColor, "before")
+    element.style.backgroundColor = "rgb(237, 237, 237)";
+    Promise.resolve(waitforme(1000))
+    console.dir("light off")
+    element.style.backgroundColor = element.textContent
+    console.log(element.style.backgroundColor, "after")
+  })
+    console.log("5 skips 3")
+    console.log("6")
   }
+
+async function lightColor(element, millisec) {
+  console.log("third")
+  element.style.backgroundColor = "rgb(237, 237, 237)";
+  await waitforme(millisec).then(() => {
+    console.log("4")
+    element.style.backgroundColor = element.textContent
+  })
 }
 
-function get_random(list) {
-  return list[Math.floor(Math.random() * list.length)];
-}
-
-let i = 0;
-let clicks = [];
-let score = 0;
-
-function gamePattern(e) {
-  clicks.push(e.target.id);
-  console.log(e);
-  e.target.style.backgroundColor = "rgb(237, 237, 237)";
-  if (clicks[i] === pattern[i]) {
-    i++;
-    e.target.style.backgroundColor = e.target.textContent;
-
-    if (i === pattern.length) {
+async function gamePattern(e) {
+  await lightColor(e.target, 500)
+  gameState.clicks.push(e.target.id)
+  if (gameState.clicks[gameState.clickIndex] === pattern[gameState.clickIndex]) {
+    gameState.clickIndex++;
+    if (gameState.clickIndex === pattern.length) {
       pattern.push(get_random(list).id);
-      console.log("next pattern", pattern);
-      i = 0;
-      clicks = [];
-      score++;
-      scoreId.innerText = score;
-      colorLight(pattern);
+      gameState.clickIndex = 0;
+      gameState.clicks = [];
+      gameState.score++;
+      scoreId.innerText = gameState.score;
+      console.log("next pattern", "pattern")
+      await lightPatterns(pattern).then(() => {
+        
+      });
+      console.log("last")
     }
   } else {
-    pattern = ["blue-butn"];
-    clicks = [];
-    score = 0;
-    scoreId.innerText = score;
+    e.target.style.backgroundColor = e.target.textContent;
+    pattern = pattern[0];
+    gameState.clicks = [];
+    gameState.score = 0;
+    scoreId.innerText = gameState.score;
     console.log("finish");
   }
 }

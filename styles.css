@@ -22,3 +22,10 @@
     border-style: double;
     padding: 50px;
 }
+
+.highlight {
+    size: 100px;
+    background-color: rgb(162, 156, 156);
+    border-style: double;
+    padding: 50px;
+}
