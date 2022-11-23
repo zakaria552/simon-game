@@ -1,31 +1,56 @@
-#red-butn{
-    size: 100px;
-    background-color: red;    
-    border-style: double;
+
+#highlight {
+    background-color: rgb(144, 149, 147);
     padding: 50px;
+    border: none;
+}
+#red-butn{
+    background-color: red;    
+    padding: 50px;
+    border: none;
 }
 #blue-butn{
-    size: 100px;
     background-color: blue;
-    border-style: double;
     padding: 50px;
+    border: none;
+
 }
 #green-butn{
-    size: 100px;
     background-color: green;
-    border-style: double;
     padding: 50px;
+    border: none;
 }
 #yellow-butn{
-    size: 100px;
     background-color: yellow;
-    border-style: double;
     padding: 50px;
+    border: none;
+}
+#high-score {
+    margin-top: 5px;
+}
+#score-id {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+#yellow-butn:hover{
+    border: 3px groove;
+    border-color: aquamarine;
+
+}
+#blue-butn:hover{
+    border: 3px groove;
+    border-color: aquamarine;
+
 }
 
-.highlight {
-    size: 100px;
-    background-color: rgb(162, 156, 156);
-    border-style: double;
-    padding: 50px;
+#green-butn:hover{
+    border: 3px groove;
+    border-color: aquamarine;
+
+}
+
+#red-butn:hover{
+    border: 3px groove;
+    border-color: aquamarine;
+
 }
