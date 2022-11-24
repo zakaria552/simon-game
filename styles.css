@@ -1,9 +1,12 @@
-body {
+#simon {
     /* background-color: #d0f4de; */
-    /* background-color: #a9def9; */
-    background-color: #93c9e4;
+     background-color: #a9def9;
+   
 }
-.container{
+body {
+    background-color: bisque;
+}
+.container1{
     display: flex;
     justify-content:center;
 }
@@ -49,7 +52,7 @@ h1 {
     border: none;
 }
 #blue-butn{
-    background-color: rgb(22, 110, 181);
+    background-color: #223D88;
     padding: 50px;
     border: none;
 
