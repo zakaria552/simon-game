@@ -1,30 +1,29 @@
-*{
-    background-color: #d0f4de;
+body {
+    /* background-color: #d0f4de; */
+    /* background-color: #a9def9; */
+    background-color: #93c9e4;
 }
 .container{
-    height: 500px;
     display: flex;
-    flex-direction: column;
-    align-items: center; 
     justify-content:center;
 }
-.container div h3 {
-    margin-left: 15px;
-    margin-bottom: 5px;
-    font-size: 20px;
-}
-.container div p {
-    margin-top: 8px;
-    margin-left: 5px;
-    font-size: 20px;
-}
-main {
-    display: flex;
-    justify-content:flex-start
+.container button {
+    border-radius: 10px;
+    padding: 20px;
+    height: 18vh;
+    width: 18vh;
 }
 h1 {
+    margin-top: 50px;
     font-size: 40px;
 }
+#cont h1 {
+    text-align: center;
+}
+#cont div {
+    text-align: center;
+}
+
 #play-butn {
     width: 580px;
     height: 100px;
@@ -39,47 +38,49 @@ h1 {
     background-color: #a3c4f3;
 }
 #highlight {
-    background-color: rgb(144, 149, 147);
+    background-color: rgb(137, 210, 181);
     padding: 50px;
     border: none;
+    filter: hue-rotate(90deg);
 }
 #red-butn{
-    background-color: red;    
+    background-color: rgb(230, 103, 18);    
     padding: 50px;
     border: none;
 }
 #blue-butn{
-    background-color: blue;
+    background-color: rgb(22, 110, 181);
     padding: 50px;
     border: none;
 
 }
 #green-butn{
-    background-color: green;
+    background-color: rgb(11, 119, 11);
     padding: 50px;
     border: none;
 }
 #yellow-butn{
-    background-color: yellow;
+    background-color: rgba(167, 32, 182, 0.839);
     padding: 50px;
     border: none;
 }
 #high-score {
+    text-align: center;
     margin-top: 5px;
 }
 #score-id {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 #yellow-butn:hover{
-    border: 3px groove;
+    border: 4px groove;
     border-color: aquamarine;
 
 }
 #blue-butn:hover{
     border: 3px groove;
     border-color: aquamarine;
-
 }
 
 #green-butn:hover{
@@ -91,5 +92,19 @@ h1 {
 #red-butn:hover{
     border: 3px groove;
     border-color: aquamarine;
-
+}
+.container button:hover {
+    filter: hue-rotate(90deg);
+    filter: drop-shadow(30px 16px 10px rgb(218, 119, 5)) invert(75%);  
+    height: 20vh;
+    width: 20vh;
+}
+h5 > i {
+    border-right: solid;
+    border-color: darksalmon;
+    border-width: 10px;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 100px;
+    border-color: #a3c4f3;
 }
