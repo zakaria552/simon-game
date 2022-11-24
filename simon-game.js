@@ -1,35 +1,17 @@
-import waitforme from "./utils.js"
-document.location.scripts
-
-playBtn.addEventListener("click", async (e) => {
-  console.log("waiting")
-  await waitforme(500)
-  console.log("waited")
-  console.log("clicked")
-  playBtn.remove()
-  contrainer.append(main)
-  contrainer.append(score)
-  script[0].src = "./index.js"
-  console.log(script[0].src)
-
-})
-
-
-/*const allButtons = [...document.getElementsByTagName("main")[0].children];
+const allButtons = [...document.getElementsByTagName("button")];
+console.log(allButtons)
 let scoreId = document.getElementById("score-id").children[0];
 let highScore = document.getElementById("high-score").children[0];
 const playBtn = document.getElementById("play-butn");
-
+console.log(allButtons)
 const list = allButtons.map((elem) => {
   if (elem.id !== "play-butn") {
     return elem;
   }
 });
+
 let pattern = [get_random(list)];
 const gameState = {clickIndex: 0, clicks: [], score: 0, highScore: 0}
-playBtn.addEventListener("click", async function onClick(e) {
-  await lightColor(pattern[0], 1000)
-});
 
 function get_random(list) {
   return list[Math.floor(Math.random() * list.length)];
@@ -47,7 +29,7 @@ async function lightPatterns(arr) {
   console.log("pause for pattern to start??", pattern)
   await waitforme(1500)
   console.log("waited")
-  for(elem of arr) {
+  for(let elem of arr) {
     const prevId = elem.id
     console.log(prevId)
     console.dir(elem)
@@ -70,9 +52,9 @@ async function lightColor(element, millisec) {
   })
 }
 
-async function gamePattern(e) {
-  await lightColor(e.target, 500)
-  gameState.clicks.push(e.target)
+async function gamePattern(element) {
+  await lightColor(element, 500)
+  gameState.clicks.push(element)
   const clickedColorElement = gameState.clicks[gameState.clickIndex]
   const correctColorElement = pattern[gameState.clickIndex]
   console.log(correctColorElement)
@@ -90,7 +72,7 @@ async function gamePattern(e) {
       console.log("last")
     }
   } else {
-    e.target.style.backgroundColor = e.target.textContent;
+    element.style.backgroundColor = element.textContent;
     pattern = pattern[0];
     gameState.clicks = [];
     gameState.score = 0;
@@ -101,11 +83,23 @@ async function gamePattern(e) {
     console.log("wrong click");
   }
 }
+const reset  = (gameState) => {
+  pattern = [get_random(list)]
+  gameState.clicks = 0
+  gameState.clickIndex = 0
+  gameState.score = 0
+  if(gameState.highScore < gameState.score) {
+    highScore.innerText = gameState.highScore;
+  }
+}
+await waitforme(1500)
+lightColor(pattern[0], 1000)
 
 allButtons.forEach((button) => {
-  button.addEventListener("click", gamePattern);
+  button.addEventListener("click", (e) => {
+    gamePattern(e.target)
+  });
 });
-*/
 
 /*
 <main>

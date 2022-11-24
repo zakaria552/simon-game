@@ -1,4 +1,43 @@
-
+*{
+    background-color: #d0f4de;
+}
+.container{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content:center;
+}
+.container div h3 {
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.container div p {
+    margin-top: 8px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+main {
+    display: flex;
+    justify-content:flex-start
+}
+h1 {
+    font-size: 40px;
+}
+#play-butn {
+    width: 580px;
+    height: 100px;
+    padding: 20px;
+    font-size: 40px;
+    color: aliceblue;
+    background-color: #a9def9;
+    border: gro;
+    border-color:#a3c4f3;
+}
+#play-butn:hover{
+    background-color: #a3c4f3;
+}
 #highlight {
     background-color: rgb(144, 149, 147);
     padding: 50px;

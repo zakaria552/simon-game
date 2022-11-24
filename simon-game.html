@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title>Simon</title>
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="./simon-game.js"></script>
 </head>
 <body>
     <div id="cont" class="container">
@@ -14,13 +14,15 @@
         <div>
             <h3>Do what Simon says</h3>
             <p>Follow the pattern of colours, for as long as you can... if you can!</p>
-            <a href="./simon-game.html">
-                <button id="play-butn" type="button">PLAY</button>
-
-            </a>
         </div>
+        <main>
+            <button id="red-butn" type="button">red</button>
+            <button id="blue-butn" type="button">blue</button>
+            <button id="green-butn" type="button">green</button>
+            <button id="yellow-butn" type="button">yellow</button>
+        </main>
+        <h5 id="score-id">SCORE: <i>0</i> </h5>
+        <h5 id="high-score">HIGH SCORE: <i>0</i> </h5>
     </div>
-    
 </body>
 </html>
-
