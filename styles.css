@@ -4,17 +4,32 @@
    
 }
 body {
-    background-color: bisque;
+    /* background-color:#ffc8dd */
+    background-color: #f5ebe0;
 }
 .container1{
     display: flex;
     justify-content:center;
 }
-.container button {
+.container1 button {
     border-radius: 10px;
     padding: 20px;
     height: 18vh;
     width: 18vh;
+}
+#ph1 {
+    font-size: 200px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+#ph3 {
+    font-size: 30px;
+}
+#pp {
+    font-size: 20px;
+}
+#reset-butn {
+    
 }
 h1 {
     margin-top: 50px;
@@ -33,9 +48,10 @@ h1 {
     padding: 20px;
     font-size: 40px;
     color: aliceblue;
-    background-color: #a9def9;
+    background-color: #9c89b8;
     border: gro;
     border-color:#a3c4f3;
+    filter: sepia(45%);
 }
 #play-butn:hover{
     background-color: #a3c4f3;
@@ -70,11 +86,14 @@ h1 {
 #high-score {
     text-align: center;
     margin-top: 5px;
+    font-size: 20px;
+    margin-bottom: 0;
 }
 #score-id {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 5px;
+    font-size: 20px;
 }
 #yellow-butn:hover{
     border: 4px groove;
@@ -96,12 +115,25 @@ h1 {
     border: 3px groove;
     border-color: aquamarine;
 }
+.container1 button:hover {
+    filter: hue-rotate(90deg);
+    filter: drop-shadow(30px 16px 10px rgb(218, 119, 5)) invert(75%);  
+    height: 20vh;
+    width: 20vh;
+}
 .container button:hover {
     filter: hue-rotate(90deg);
     filter: drop-shadow(30px 16px 10px rgb(218, 119, 5)) invert(75%);  
     height: 20vh;
     width: 20vh;
 }
+#reset-butn {
+   align-items: center;
+   cursor: pointer;
+   font-size: 25px;
+   margin-top: 5px;
+}
+
 h5 > i {
     border-right: solid;
     border-color: darksalmon;

@@ -3,7 +3,8 @@ console.log(allButtons)
 let scoreId = document.getElementById("score-id").children[0];
 let highScore = document.getElementById("high-score").children[0];
 const playBtn = document.getElementById("play-butn");
-console.log(allButtons)
+const resetBtn = document.getElementById("reset-butn")
+console.dir(resetBtn)
 const list = allButtons.map((elem) => {
   if (elem.id !== "play-butn") {
     return elem;
@@ -113,7 +114,19 @@ const addEventListener = () => {
     });
   });
 }
-
+async function fullreset() {
+  pattern = [get_random(list)]
+  gameState.highScore = 0
+  highScore.innerText = gameState.highScore
+  gameState.clicks = []
+  gameState.clickIndex = 0
+  gameState.score = 0
+  scoreId.innerText = gameState.score;
+  await lightPatterns(pattern)
+}
+resetBtn.addEventListener("click", async (e) => {
+  await fullreset()
+})
 addEventListener()
 
 /*
