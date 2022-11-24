@@ -1,46 +1,108 @@
+#simon {
+    /* background-color: #d0f4de; */
+     background-color: #a9def9;
+   
+}
+body {
+    /* background-color:#ffc8dd */
+    background-color: #f5ebe0;
+}
+.container1{
+    display: flex;
+    justify-content:center;
+}
+.container1 button {
+    border-radius: 10px;
+    padding: 20px;
+    height: 18vh;
+    width: 18vh;
+}
+#ph1 {
+    font-size: 200px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+#ph3 {
+    font-size: 30px;
+}
+#pp {
+    font-size: 20px;
+}
+#reset-butn {
+    
+}
+h1 {
+    margin-top: 50px;
+    font-size: 40px;
+}
+#cont h1 {
+    text-align: center;
+}
+#cont div {
+    text-align: center;
+}
 
+#play-butn {
+    width: 580px;
+    height: 100px;
+    padding: 20px;
+    font-size: 40px;
+    color: aliceblue;
+    background-color: #9c89b8;
+    border: gro;
+    border-color:#a3c4f3;
+    filter: sepia(45%);
+}
+#play-butn:hover{
+    background-color: #a3c4f3;
+}
 #highlight {
-    background-color: rgb(144, 149, 147);
+    background-color: rgb(137, 210, 181);
     padding: 50px;
     border: none;
+    filter: hue-rotate(90deg);
 }
 #red-butn{
-    background-color: red;    
+    background-color: rgb(230, 103, 18);    
     padding: 50px;
     border: none;
 }
 #blue-butn{
-    background-color: blue;
+    background-color: #223D88;
     padding: 50px;
     border: none;
 
 }
 #green-butn{
-    background-color: green;
+    background-color: rgb(11, 119, 11);
     padding: 50px;
     border: none;
 }
 #yellow-butn{
-    background-color: yellow;
+    background-color: rgba(167, 32, 182, 0.839);
     padding: 50px;
     border: none;
 }
 #high-score {
+    text-align: center;
     margin-top: 5px;
+    font-size: 20px;
+    margin-bottom: 0;
 }
 #score-id {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
 #yellow-butn:hover{
-    border: 3px groove;
+    border: 4px groove;
     border-color: aquamarine;
 
 }
 #blue-butn:hover{
     border: 3px groove;
     border-color: aquamarine;
-
 }
 
 #green-butn:hover{
@@ -52,5 +114,32 @@
 #red-butn:hover{
     border: 3px groove;
     border-color: aquamarine;
+}
+.container1 button:hover {
+    filter: hue-rotate(90deg);
+    filter: drop-shadow(30px 16px 10px rgb(218, 119, 5)) invert(75%);  
+    height: 20vh;
+    width: 20vh;
+}
+.container button:hover {
+    filter: hue-rotate(90deg);
+    filter: drop-shadow(30px 16px 10px rgb(218, 119, 5)) invert(75%);  
+    height: 20vh;
+    width: 20vh;
+}
+#reset-butn {
+   align-items: center;
+   cursor: pointer;
+   font-size: 25px;
+   margin-top: 5px;
+}
 
+h5 > i {
+    border-right: solid;
+    border-color: darksalmon;
+    border-width: 10px;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 100px;
+    border-color: #a3c4f3;
 }

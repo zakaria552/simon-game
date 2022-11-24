@@ -1,36 +1,19 @@
-import waitforme from "./utils.js"
-document.location.scripts
-
-playBtn.addEventListener("click", async (e) => {
-  console.log("waiting")
-  await waitforme(500)
-  console.log("waited")
-  console.log("clicked")
-  playBtn.remove()
-  contrainer.append(main)
-  contrainer.append(score)
-  script[0].src = "./index.js"
-  console.log(script[0].src)
-
-})
-
-
-/*const allButtons = [...document.getElementsByTagName("main")[0].children];
+const allButtons = [...document.getElementsByTagName("button")];
+console.log(allButtons)
 let scoreId = document.getElementById("score-id").children[0];
 let highScore = document.getElementById("high-score").children[0];
 const playBtn = document.getElementById("play-butn");
-
+const resetBtn = document.getElementById("reset-butn")
+console.dir(resetBtn)
 const list = allButtons.map((elem) => {
   if (elem.id !== "play-butn") {
     return elem;
   }
 });
+
 let pattern = [get_random(list)];
 const gameState = {clickIndex: 0, clicks: [], score: 0, highScore: 0}
-playBtn.addEventListener("click", async function onClick(e) {
-  await lightColor(pattern[0], 1000)
-});
-
+console.dir(allButtons[0])
 function get_random(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -43,23 +26,21 @@ function waitforme(milisec) {
 }
 
 async function lightPatterns(arr) {
-  console.log("lightning")
+  disableButtons()
   console.log("pause for pattern to start??", pattern)
   await waitforme(1500)
-  console.log("waited")
-  for(elem of arr) {
+  console.log("waited 1.5s")
+  for(let elem of arr) {
     const prevId = elem.id
-    console.log(prevId)
+    console.log("preives id", prevId)
     console.dir(elem)
-    console.log("1",elem.id)
     elem.id = "highlight"
     await waitforme(500)
     elem.id = prevId
-    console.dir("2", elem.id)
+    console.log("after", elem.id)
     await waitforme(500)
   }
-    console.log("5 skips 3")
-    console.log("6")
+  enableButtons()
   }
 
 async function lightColor(element, millisec) {
@@ -70,9 +51,10 @@ async function lightColor(element, millisec) {
   })
 }
 
-async function gamePattern(e) {
-  await lightColor(e.target, 500)
-  gameState.clicks.push(e.target)
+async function gamePattern(element) {
+  await lightColor(element, 500)
+  console.log("clicked")
+  gameState.clicks.push(element)
   const clickedColorElement = gameState.clicks[gameState.clickIndex]
   const correctColorElement = pattern[gameState.clickIndex]
   console.log(correctColorElement)
@@ -85,27 +67,67 @@ async function gamePattern(e) {
       gameState.clicks = [];
       gameState.score++;
       scoreId.innerText = gameState.score;
-      await lightPatterns(pattern).then(() => {
-      });
+      console.log("next pattern....")
+      await lightPatterns(pattern)
       console.log("last")
     }
   } else {
-    e.target.style.backgroundColor = e.target.textContent;
-    pattern = pattern[0];
-    gameState.clicks = [];
-    gameState.score = 0;
-    scoreId.innerText = gameState.score;
-    if(gameState.highScore < gameState.score) {
-      highScore.innerText = gameState.highScore;
-    }
+    element.style.backgroundColor = element.textContent;
+    console.log(gameState.highScore, highScore.innerText)
+    reset()
     console.log("wrong click");
   }
 }
+async function reset(){
+  pattern = [get_random(list)]
+  console.log(gameState)
+  if(gameState.score > gameState.highScore) {
+    console.log("??")
+    gameState.highScore = gameState.score
+    highScore.innerText = gameState.highScore;
+  }
+  gameState.clicks = []
+  gameState.clickIndex = 0
+  gameState.score = 0
+  scoreId.innerText = gameState.score;
+  await lightPatterns(pattern)
+}
+const disableButtons = () => {
+  allButtons.forEach((button) => {
+    button.disabled = true
+  })
+}
+const enableButtons = () => {
+  allButtons.forEach((button) => {
+    button.disabled = false
+  })
+}
 
-allButtons.forEach((button) => {
-  button.addEventListener("click", gamePattern);
-});
-*/
+disableButtons()
+await waitforme(1500)
+lightColor(pattern[0], 1000)
+enableButtons()
+const addEventListener = () => {
+  allButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      gamePattern(e.target)
+    });
+  });
+}
+async function fullreset() {
+  pattern = [get_random(list)]
+  gameState.highScore = 0
+  highScore.innerText = gameState.highScore
+  gameState.clicks = []
+  gameState.clickIndex = 0
+  gameState.score = 0
+  scoreId.innerText = gameState.score;
+  await lightPatterns(pattern)
+}
+resetBtn.addEventListener("click", async (e) => {
+  await fullreset()
+})
+addEventListener()
 
 /*
 <main>
